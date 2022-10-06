@@ -11,7 +11,7 @@ export default function AutoComplete(props: any) {
   const loading = open && options.length === 0;
 
 const handleCitySelection = ((event: object, value: City) => {
-    axios.get('http://dataservice.accuweather.com/currentconditions/v1/'+ value.Key + '?apikey=' + import.meta.env.VITE_API_KEY + '&language=pt-br' )
+    axios.get('https://dataservice.accuweather.com/currentconditions/v1/'+ value.Key + '?apikey=' + import.meta.env.VITE_API_KEY + '&language=pt-br' )
     .then((res) => {
       //Atualiza state
       props.setWeatherData(res.data[0])
@@ -27,7 +27,7 @@ const handleCitySelection = ((event: object, value: City) => {
  const handleInputChange = ((event: object, value: string) => {
      lastTimeout != null ? clearTimeout(lastTimeout) : null
      lastTimeout = setTimeout(() => {
-      axios.get('http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=' + import.meta.env.VITE_API_KEY + '&language=pt-br&q=' + value.replaceAll(' ', '%20'))
+      axios.get('https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=' + import.meta.env.VITE_API_KEY + '&language=pt-br&q=' + value.replaceAll(' ', '%20'))
      .then((res) => {
        if(res.data != null) props.setCityList(res.data)
      })
