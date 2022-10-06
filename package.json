@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npm install && vite --port=4000",
+    "start": "npm install && npm install -g vite && vite --port=4000",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
